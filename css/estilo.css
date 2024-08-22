@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&display=swap');
+
+body {
+    margin: 0; /* Tira as margens externas */
+    padding: 0; /* Tira as margens internas (dentro do div não terá margens) */
+    font-family: "Montserrat", sans-serif;
+}
+
+.site {
+    position: relative; /*A posição do banner se adequa a tela do monitor*/
+    width: 1000px;  /* faz a div do site se adequar a tela de um monitor que tenha até 1000 pixels de largura */
+    height: auto; /* faz a div do site se adequar às div's que vão sendo introduzidas */
+    margin: auto; /*Faz a margem se igualar tanto na direita quanto na esquerda, tanto pra cima quanto para baixo */
+    /*background: gray;*/
+ }
+
+ .topo {
+    position: relative;
+    width: 100%;    /*Vai se ajustar 100% a largura do site */
+    height: 150px;
+ }
+
+ .logo {
+    position: relative;
+    margin: auto;
+    height: 150px;
+    width: 150px;
+ }
+
+ .menu {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background: paleturquoise;
+
+ }
+ /*APLICA ESSAS ESPECIFICAÇÕES EM TODAS AS LISTAS DENTRO DA DIV MENU*/
+ .menu ul{
+   display: flex; /*DEIXA O CONTEÚDO DO MENU FLEXÍVEL (para ser manipulado)*/
+   justify-content: center; /*DEIXA O CONTEÚDO DO MENU CENTRALIZADO*/
+   list-style: none; /*OCULTA A BOLINHA DA LISTA*/
+   padding-left: 0; /*TIRA O ESPAÇAMENTO DA LISTA*/
+   margin: 0; /*ZERA A MARGEM QUE O MENU DAVA DO LOGO*/
+ }
+
+
+/*APLICA ESSAS ESPECIFICAÇÕES EM TODAS OS LINKS DOS ITENS DAS LISTAS DENTRO DA DIV MENU*/
+.menu ul li a {
+   float: left; /*COLOCA OS ITENS DA LISTA UM DO LADO DO OUTRO*/
+   padding: 15px 50px; /*CRIA UMA MARGEM INTERNA DE 15PX E DA UM ESPAÇAMENTO DE 50PX ENTRE OS ITENS DO MENU */
+   color: inherit; /*A cor do link se adequa ao site*/
+   text-decoration: none; /*Tira o sublinhado dos links do menu*/
+   transition: 0.8s; /*Cria um efeito de transição quando passa o mouse por cima do menu*/   
+}
+
+/*HOVER: Efeito de passar o mouse sobre o elemento*/
+.menu ul li a:hover {
+   background-color: rgb(147, 212, 212); /*Quando passar o mouse sobre os itens do menu, a cor mudará para essa q defini*/
+}
+
+ .banner {
+    position: relative;
+    width: 100%;    
+    height: 400;
+    transition: all 0.5s;
+ }
+/*AMPLIA O BANNER*/
+ .banner:hover {
+   transition: 0.8s;
+   transform: scale(1.05);
+ }
+
+ .conteudo {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 50px 0;  /* Duas medidas no Margin: Eixo vertical e eixo horizontal */
+                     /* A medida de 50px se aplica no eixo horizontal (em cima e embaixo) e a de 0 se aplica no eixo vertical (lado direito e esquerdo) */
+ }
+
+ .box {
+    position: relative;
+    width: 300px;
+    height: 500px;
+    /*background: pink;*/
+    float: left; /*Faz as DIV BOX ficarem uma ao lado da outra - elas se alinham para esquerda*/
+    margin-right: 50px; /*afasto 50px da margem direita */
+    border: 1px   black solid; /*Crio uma borda da expessura de 1px, da cor preta e a borda será sólida*/
+    padding: 10px;   /*Crio um espaçamento interno/ uma margem interna de 10px na box*/
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0 rgb(147, 212, 212); /*APLICO SOMBRA NAS DIV BOX*/
+    /*20px - ANGULO DAS SOMBRAS LATERAIS (DIREITA E ESQUERDA)   
+      20px - ANGULO DAS SOMBRAS DE CIMA E DE BAIXO
+      0px - OPACIDADE DA SOMBRA*/
+      /* OU POSSO TIRAR A BORDA DA DIV BOX E DEIXAR SÓ A SOMBRA DELIMITANDO A DIV */
+   transition: all 0.5s;
+ }
+
+ .box:hover {
+   /* box-shadow: 20px 20px 0 rgb(76, 119, 119); */
+   box-shadow: 0px 0px 0 rgb(76, 119, 119);
+   cursor: pointer;
+   transition: 0.8s;
+   transform: scale(1.1);
+
+ }
+
+ /*Todos os box teriam uma margem de 50px para direita, mas o último não pode ter, pois ele iria para baixo, uma vez que não tem espaço para a direita dele
+ Então, para evitar isso, usa-se o 'last-child' para avisar que o último box não deve ter uma margem para direita
+ Assim, ficam os 3 box um do lado do outro*/
+ .box:last-child {  
+    margin-right: 0;
+ }
+
+ /*APLICA ESSAS ESPECIFICAÇÕES EM TODAS AS IMAGENS DENTRO DA DIV BOX*/
+ .box img {  
+   width: 100%;
+   height: auto;
+   border-top-left-radius: 20px; /*ARREDONDO A BORDA SUPERIOR ESQUERDA DA IMAGEM*/
+   border-top-right-radius: 20px; /*ARREDONDO A BORDA SUPERIOR DIREITA DA IMAGEM*/
+/* AMPLIA A IMAGEM AO PASSAR O CURSOR POR CIMA */
+   max-width: 100%;
+   -moz-transition: all 0.5s;
+   transition: all 0.5s;
+ }
+/* AMPLIA A IMAGEM AO PASSAR O CURSOR POR CIMA */
+ .box:hover img{
+   -moz-transform: scale(1.17); /*deixa compatível com o navegador mozila*/
+   -webkit-transform: scale(1.17); /*deixa compatível com todos os navegadores*/
+   transform: scale(1.17);
+ }
+
+ /*APLICA ESSAS ESPECIFICAÇÕES EM TODOS OS TÍTULOS E PARÁGRAFOS DENTRO DA DIV BOX*/
+ .box h2, .box p{
+   padding: 10px; /*CRIA UMA BORDA INTERNA DE 10PX*/
+   
+ }
+
+ /*DEIXO TODOS OS TÍTULOS CENTRALIZADOS DENTRO DA DIV BOX*/
+.box h2 {
+   text-align: center;
+   margin: 0;
+}
+
+/*APLICO ESSAS PROPRIEDADES EM TODOS OS PARÁGRAFOS DE TEXTO*/
+.box p{
+   text-align: justify;
+   font-size: 15px;
+   margin: 0;
+}
+
+ /*APLICA ESSAS ESPECIFICAÇÕES NA DIV DO RODAPÉ*/
+ .rodape {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: blanchedalmond;
+ }
